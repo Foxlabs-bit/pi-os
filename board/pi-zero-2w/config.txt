@@ -1,0 +1,51 @@
+# Pi Zero 2 W - PiOS Configuration
+# Ultra-lightweight settings for 512MB RAM
+
+[pi02]
+arm_64bit=1
+kernel=u-boot.bin
+
+# GPU memory - minimum viable for display
+# 16MB is enough for basic framebuffer/KMS
+gpu_mem=16
+
+# Disable camera, SPI, I2C unless needed
+camera_auto_detect=0
+dtparam=spi=off
+dtparam=i2c_arm=off
+
+# Audio
+dtparam=audio=on
+
+# Disable Bluetooth if not needed (saves power)
+# dtoverlay=disable-bt
+
+# WiFi power saving
+dtparam=ant2
+
+# UART for console (optional)
+enable_uart=1
+
+# Disable rainbow splash
+disable_splash=1
+
+# Boot delay 0 for fastest boot
+disable_commandline_tags=2
+
+# Overclock potential (Zero 2 W can handle slight OC)
+# Only enable if you have heatsink
+# arm_freq=1100
+# over_voltage=2
+
+# VC4 DRM
+# dtoverlay=vc4-kms-v3d
+# Or for minimal:
+dtoverlay=vc4-fkms-v3d
+
+# CPU temp limit
+temp_limit=75
+
+# Power LED (optional - off to save tiny bit of power)
+dtparam=act_led_trigger=none
+
+[all]

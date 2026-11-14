@@ -1,0 +1,8 @@
+# PiOS inittab - Busybox init
+::sysinit:/etc/init.d/rcS
+::sysinit:/bin/echo "PiOS starting..."
+::respawn:/sbin/getty -L tty1 115200 linux
+::respawn:/usr/bin/pios-shell
+::ctrlaltdel:/sbin/reboot
+::shutdown:/bin/umount -a -r
+::shutdown:/sbin/swapoff -a
